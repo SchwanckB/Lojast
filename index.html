@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo Loja ST</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #ffffff;
+        color: #fff;
+        margin: 0;
+    }
+   header.cabecalho {
+  background: none;
+  padding: 40px 0;
+  text-align: center;
+}
+
+header.cabecalho img {
+  width: 160px;
+  height: auto;
+  border: none;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.2)); /* leve sombra flutuante */
+}
+
+
+    
+    .pagina {
+        display: none;
+        padding: 20px;
+        text-align: center;
+    }
+    .ativa {
+        display: block;
+    }
+    button {
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 20px;
+      padding:10px 20px; background:#2c58e9; color:white;
+      
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    h2 {
+        margin-top: 0;
+    }
+    .filtros {
+        margin: 20px 0;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    .card {
+        background: #121821;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        text-align: left;
+    }
+    .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+    .info {
+        padding: 10px;
+    }
+    .info h3 {
+        margin: 0;
+        font-size: 16px;
+    }
+    .info p {
+        margin: 4px 0;
+        color: #9fb0c3;
+        font-size: 14px;
+    }
+   footer.rodape {
+  background: linear-gradient(270deg, #0ea5a9, #0077b6);
+  background-size: 600% 600%;
+  animation: moverGradiente 8s ease infinite;
+  padding: 12px 0; /* mantém o rodapé fino */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  border-top: 1px solid #2a2f3a;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+  overflow: hidden; /* evita que imagens maiores ultrapassem */
+}
+
+footer.rodape a {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+footer.rodape a:hover {
+  transform: scale(1.08);
+}
+
+footer.rodape img {
+  width: 48px; /* ícones maiores */
+  height: 48px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.3));
+  margin-top: -8px; /* empurra levemente pra cima */
+}
+
+
+/* Animação do gradiente */
+@keyframes moverGradiente {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+    
+    
+</style>
+</head>
+<body>
+
+<header class="cabecalho">
+  <img src="img/logo.png" alt="Logo Loja SFI">
+</header>
+
+
+<!-- Página inicial -->
+<div id="pagina-inicial" class="pagina ativa" style="padding: 30px; text-align: center; font-family: Arial, sans-serif;">
+
+    <h1 style="color: #0ea5a9; font-size: 32px; margin-bottom: 10px;">Bem-vindo ao catálogo da Loja ST!</h1>
+    <p style="color: #333; font-size: 18px; margin-bottom: 30px;">
+        Este é o catálogo oficial da nossa loja. Aqui você encontra os melhores aparelhos, novos e usados, com garantia e qualidade.
+    </p>
+
+
+    <!-- Faixa de destaque -->
+    <div style="background: linear-gradient(90deg, #0ea5a9, #0077b6); color: white; padding: 20px; border-radius: 10px; margin-bottom: 40px;">
+        <h2 style="margin: 0; font-size: 22px;">⚡ Os melhores celulares estão aqui!</h2>
+        <p style="margin: 10px 0 0;">Garantia de 3 meses em aparelhos usados • Parcelamos em ate 12x •  Acessórios inclusos </p>
+    </div>
+
+    <!-- Categorias com ícones -->
+   
+    <!-- Informativo de acessórios -->
+    <p style="background: linear-gradient(90deg, #0077b6, #0ea5a9);; padding: 10px; border-radius: 8px; font-weight: bold; margin-bottom: 30px;">
+        Todos os aparelhos acompanham: capa + película + carregador 🔌📱
+    </p>
+
+    <!-- Botão de navegação -->
+    <button onclick="mostrarPagina('pagina-marcas')" style="background: #0ea5a9; color: white; padding: 12px 24px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+        Vamos lá!
+    </button>
+
+</div>
+
+
+
+<!-- Página de seleção de marca -->
+<div id="pagina-marcas" class="pagina" style="padding: 28px 20px; font-family: Arial, sans-serif;">
+
+  <style>
+    .marcas-wrap { --prim:#0ea5a9; --escuro:#121821; --cinza:#f3f5f7; --texto:#2b2b2b; }
+
+    .marcas-wrap h2 {
+      margin: 0 0 6px 0; color: var(--escuro); font-size: 26px; text-align: center;
+    }
+    .marcas-wrap p.sub {
+      margin: 0 0 22px 0; color: #555; text-align: center; font-size: 15px;
+    }
+
+    .grid-marcas {
+      display: grid; gap: 18px; margin: 0 auto 26px; max-width: 980px;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .card-marca {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 10px; padding: 18px; border: 1px solid #e6e8eb; border-radius: 14px;
+      background: #fff; cursor: pointer; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .card-marca:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+      border-color: #d9dde2;
+    }
+    .card-marca img {
+      width: 80px; height: 80px; object-fit: contain; display: block;
+      filter: drop-shadow(0 0 1px rgba(0,0,0,0.08));
+    }
+    .card-marca span {
+      color: var(--texto); font-weight: 700; font-size: 16px;
+    }
+    .card-marca small {
+      color: #6a6f76; font-size: 12px;
+    }
+
+    .acoes {
+      display: flex; justify-content: center; gap: 12px;
+    }
+    .btn {
+      appearance: none; border: none; cursor: pointer; font-weight: 700;
+      padding: 12px 22px; border-radius: 10px; font-size: 15px;
+      transition: transform .12s ease, box-shadow .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-primaria {
+      background: var(--prim); color: #fff; box-shadow: 0 4px 12px rgba(14,165,169,0.25);
+    }
+    .btn-primaria:hover { background: #0aa0a3; }
+    .btn-secundaria {
+      background: #fff; color: var(--escuro); border: 1px solid #d9dde2;
+    }
+    .btn-secundaria:hover { background: #f7f8fa; }
+
+    @media (max-width: 520px) {
+      .card-marca img { width: 68px; height: 68px; }
+    }
+  </style>
+
+  <div class="marcas-wrap">
+    <h2>Qual marca você está procurando?</h2>
+    <p class="sub">Escolha abaixo para ver os modelos disponíveis</p>
+
+    <div class="grid-marcas">
+      <button type="button" class="card-marca" onclick="abrirMarca('Apple')">
+        <img src="img/logo-apple.png" alt="Apple">
+        <span>Apple</span>
+        <small>iPhone • Acessórios</small>
+      </button>
+
+      <button type="button" class="card-marca" onclick="abrirMarca('Samsung')">
+        <img src="img/logo-samsung.png" alt="Samsung">
+        <span>Samsung</span>
+        <small>Galaxy • Acessórios</small>
+      </button>
+
+      <button type="button" class="card-marca" onclick="abrirMarca('Xiaomi')">
+        <img src="img/logo-xiaomi.png" alt="Xiaomi">
+        <span>Xiaomi</span>
+        <small>Redmi • Poco</small>
+      </button>
+
+      <button type="button" class="card-marca" onclick="abrirMarca('Motorola')">
+        <img src="img/logo-motorola.png" alt="Motorola">
+        <span>Motorola</span>
+        <small>Moto G • Edge</small>
+      </button>
+    </div>
+
+    <div class="acoes">
+      <button class="btn btn-secundaria" onclick="mostrarPagina('pagina-inicial')">Voltar</button>
+    </div>
+  </div>
+</div>
+
+<div id="pagina-catalogo" class="pagina" style="padding: 28px 20px; font-family: Arial, sans-serif;">
+
+  <style>
+    .catalogo-wrap { --prim:#0ea5a9; --escuro:#121821; --cinza:#f3f5f7; }
+
+    .logo-marca {
+      text-align: center; margin-bottom: 20px;
+    }
+    .logo-marca img {
+      max-width: 120px; height: auto;
+    }
+
+    .filtros {
+      display: flex; justify-content: center; gap: 12px; margin-bottom: 30px;
+    }
+    .filtros button {
+      background: var(--cinza); border: none; padding: 10px 18px;
+      border-radius: 8px; font-weight: bold; cursor: pointer;
+      transition: background .2s ease;
+    }
+    .filtros button:hover {
+      background: #e0e0e0;
+    }
+
+    .grid-produtos {
+      display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      max-width: 980px; margin: 0 auto 30px;
+    }
+
+    .card-produto {
+      background: #fff; border: 1px solid #e6e8eb; border-radius: 12px;
+      padding: 16px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card-produto:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+    .card-produto img {
+      width: 100%; max-width: 160px; height: auto; margin-bottom: 12px;
+      object-fit: contain;
+    }
+    .card-produto h3 {
+      font-size: 16px; margin: 0 0 6px; color: #333;
+    }
+    .card-produto p {
+      margin: 4px 0; font-size: 14px; color: #555;
+    }
+    .card-produto .preco {
+      font-weight: bold; color: var(--prim); font-size: 16px;
+    }
+
+    .btn-voltar {
+      display: block; margin: 0 auto; background: var(--escuro); color: white;
+      padding: 10px 20px; border: none; border-radius: 8px; font-weight: bold;
+      cursor: pointer; transition: background .2s ease;
+    }
+    .btn-voltar:hover {
+      background: #1b1f29;
+    }
+
+    @media (max-width: 520px) {
+      .filtros { flex-wrap: wrap; gap: 8px; }
+      .card-produto img { max-width: 120px; }
+    }
+  </style>
+
+  <div class="catalogo-wrap">
+    <div class="logo-marca" id="logo-marca">
+      <!-- Logo da marca será inserida via JS -->
+    </div>
+
+    <div class="filtros">
+      <button onclick="filtrar('todos')">Todos</button>
+      <button onclick="filtrar('novo')">Novos</button>
+      <button onclick="filtrar('usado')">Semi Novos</button>
+    </div>
+
+    <div id="grid-produtos" class="grid-produtos">
+      <!-- Os produtos serão renderizados aqui via JS -->
+    </div>
+
+    <button class="btn-voltar" onclick="mostrarPagina('pagina-marcas')">Voltar</button>
+  </div>
+</div>
+
+<footer class="rodape">
+  <a href="https://wa.me/51996147897" target="_blank">
+    <img src="img/whatsapp.png" alt="WhatsApp">
+  </a>
+  <a href="https://instagram.com/lojastonline" target="_blank">
+    <img src="img/instagram.png" alt="Instagram">
+  </a>
+  <a href="www.google.com/maps?ll=-29.457358,-49.924484&z=13&t=m&hl=pt-BR&gl=US&mapclient=embed&q=Av.+Hélio+Maggi,+218+-+Centro+Três+Cachoeiras+-+RS+95580-000" target="_blank">
+    <img src="img/localizacao.png" alt="Localização">
+  </a>
+  <a href="https://www.lojast.com.br/?" target="_blank">
+    <img src="img/site.png" alt="Site Oficial">
+  </a>
+</footer>
+
+
+
+
+<script>
+const produtos = [
+    // APPLE
+    {categoria: "Apple", nome: "iPhone XR 256GB", preco: "R$ 1.000,00", desc: "Saúde da bateria: 80% — Sem Face ID", status: "usado", img: "img/iphonexr.jpg"},
+    {categoria: "Apple", nome: "iPhone SE 2020 64GB", preco: "R$ 900,00", desc: "Saúde da bateria: 72%", status: "usado", img: "img/iphonese2020.jpg"},
+    {categoria: "Apple", nome: "iPhone 11 64GB", preco: "R$ 1.200,00", desc: "Saúde da bateria: 74%", status: "usado", img: "img/iphone11.jpg"},
+    {categoria: "Apple", nome: "iPhone 12 128GB", preco: "R$ 2.200,00", desc: "Saúde da bateria: 79% — Tampa traseira nova", status: "usado", img: "img/iphonebranco12-128.jpg"},
+    {categoria: "Apple", nome: "iPhone 12 64GB", preco: "R$ 1.800,00", desc: "Saúde da bateria: 79% — Bateria trocada", status: "usado", img: "img/iphone12-64.jpg"},
+    {categoria: "Apple", nome: "iPhone 12 128GB", preco: "R$ 2.200,00", desc: "Saúde da bateria: 79% — Tampa traseira nova", status: "usado", img: "img/iphone12-128b.jpg"},
+    {categoria: "Apple", nome: "iPhone 14 128GB", preco: "R$ 3.400,00", desc: "Saúde da bateria: 86% — Acompanha caixa original", status: "usado", img: "img/iphone14.jpg"},
+    {categoria: "Apple", nome: "iPhone 14 Pro 128GB", preco: "R$ 3.950,00", desc: "Saúde da bateria: 85% — Dead pixel na tela — Câmera trocada", status: "usado", img: "img/iphone14pro.jpg"},
+    {categoria: "Apple", nome: "iPhone 14 Pro Max 128GB", preco: "R$ 4.700,00", desc: "Saúde da bateria: 83% — Acompanha caixa original", status: "usado", img: "img/iphone14promax-128.jpg"},
+    {categoria: "Apple", nome: "iPhone 14 Pro Max 256GB", preco: "R$ 4.950,00", desc: "Saúde da bateria: 85% — Acompanha caixa original", status: "usado", img: "img/iphone14promax-256.jpg"},
+    {categoria: "Apple", nome: "iPhone 16 128GB", preco: "R$ 5.400,00", desc: "Novo — Lacrado", status: "novo", img: "img/iphone16.jpg"},
+
+    // SAMSUNG
+    {categoria: "Samsung", nome: "Samsung A10S 64GB", preco: "R$ 230,00", desc: "", status: "usado", img: "img/a10s.jpg"},
+    {categoria: "Samsung", nome: "Samsung S21 FE 128GB", preco: "R$ 1.100,00", desc: "Linha na tela", status: "usado", img: "img/s21fe.jpg"},
+    {categoria: "Samsung", nome: "Samsung A31 128GB", preco: "R$ 400,00", desc: "", status: "usado", img: "img/a31.jpg"},
+    {categoria: "Samsung", nome: "Samsung A03 Core 64GB", preco: "R$ 300,00", desc: "", status: "usado", img: "img/a03core.jpg"},
+    {categoria: "Samsung", nome: "Samsung A03 128GB", preco: "R$ 900,00", desc: "", status: "novo", img: "img/a03-128.jpg"},
+    {categoria: "Samsung", nome: "Samsung Galaxy A06 128GB", preco: "R$ 900,00", desc: "1 ano de garantia", status: "novo", img: "img/a06.jpg"},
+    {categoria: "Samsung", nome: "Samsung A20S 64GB", preco: "R$ 350,00", desc: "", status: "usado", img: "img/a20s.jpg"},
+
+    // XIAOMI
+    {categoria: "Xiaomi", nome: "Xiaomi Poco C75 256GB", preco: "R$ 900,00", desc: "Novo — 1 ano de garantia", status: "novo", img: "img/pococ75.jpg"},
+    {categoria: "Xiaomi", nome: "Xiaomi Redmi 14C 256GB", preco: "R$ 950,00", desc: "Novo — 1 ano de garantia", status: "novo", img: "img/redmi14c.jpg"},
+    {categoria: "Xiaomi", nome: "Xiaomi Redmi Note 10S 128GB", preco: "R$ 900,00", desc: "Novo — 1 ano de garantia", status: "novo", img: "img/redminote10s.jpg"},
+
+    // MOTOROLA
+    {categoria: "Motorola", nome: "Motorola E7 64GB", preco: "R$ 350,00", desc: "", status: "usado", img: "img/motoe7.jpg"},
+    {categoria: "Motorola", nome: "Motorola One 64GB", preco: "R$ 450,00", desc: "", status: "usado", img: "img/motorolaone.jpg"},
+    {categoria: "Motorola", nome: "Motorola E6S 32GB", preco: "R$ 250,00", desc: "", status: "usado", img: "img/motoe6s.jpg"}
+];
+
+
+let marcaAtual = '';
+
+function mostrarPagina(id) {
+    document.querySelectorAll('.pagina').forEach(p => p.classList.remove('ativa'));
+    document.getElementById(id).classList.add('ativa');
+}
+
+function abrirMarca(marca) {
+    marcaAtual = marca;
+
+    // Define a logo correspondente
+    let logoSrc = "";
+    if (marca === "Apple") logoSrc = "img/logo-apple.png";
+    if (marca === "Samsung") logoSrc = "img/logo-samsung.png";
+    if (marca === "Xiaomi") logoSrc = "img/logo-xiaomi.png";
+    if (marca === "Motorola") logoSrc = "img/logo-motorola.png";
+
+    // Coloca a logo no topo da página de catálogo
+    document.getElementById('logo-marca').innerHTML = `
+        <img src="${logoSrc}" alt="${marca}" style="max-width:120px; height:auto;">
+    `;
+
+    // Renderiza os produtos da marca
+    render(produtos.filter(p => p.categoria === marca));
+
+    mostrarPagina('pagina-catalogo');
+}
+
+function render(lista) {
+    const container = document.getElementById('grid-produtos');
+    container.innerHTML = '';
+    lista.forEach(p => {
+        container.innerHTML += `
+            <div class="card">
+                <img src="${p.img}" alt="${p.nome}">
+                <div class="info">
+                    <h3>${p.nome} — ${p.preco}</h3>
+                    <p>${p.desc}</p>
+                </div>
+            </div>
+        `;
+    });
+}
+
+function filtrar(tipo) {
+    let lista = produtos.filter(p => p.categoria === marcaAtual);
+    if (tipo !== 'todos') {
+        lista = lista.filter(p => p.status === tipo);
+    }
+    render(lista);
+}
+</script>
+
+</body>
+</html>
